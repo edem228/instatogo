@@ -27,6 +27,8 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 #simple_form
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+#devise
+gem 'devise', '~> 3.5', '>= 3.5.3'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
