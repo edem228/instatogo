@@ -1,0 +1,7 @@
+%h2=@post.title
+%p=@post.description
+=link_to "Editer", edit_post_path
+=link_to "Supprimer", post_path(@post),
+              method: :delete,
+              data: { confirm: 'Cette publication sera supprimée, voulez-vous continuer?' }
+=link_to "Retour", root_path

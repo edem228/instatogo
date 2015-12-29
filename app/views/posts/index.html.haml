@@ -1,0 +1,5 @@
+- @posts.each do |post|
+  %h2
+    =link_to post.title, post
+  %p= post.description
+  =link_to "Editer", edit_post_path(post.id)
