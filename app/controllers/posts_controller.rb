@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "Votre contenu a été bien publié"
     else
       render "new"
     end
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to :post, notice: "Votre contenu a été bien publié"
+      redirect_to :post, notice: "Votre contenu a été bien mis à jour"
     else
       render "edit"
     end
@@ -45,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :user_id)
+    params.require(:post).permit(:title, :description, :user_id, :image)
   end
 end
