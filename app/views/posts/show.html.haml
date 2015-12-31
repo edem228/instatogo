@@ -1,9 +1,19 @@
-=image_tag @post.image.url(:medium)
-%h2=@post.title
-%p=@post.description
-%p=@post.user.email
-=link_to "Editer", edit_post_path
-=link_to "Supprimer", post_path(@post),
-              method: :delete,
-              data: { confirm: 'Cette publication sera supprimée, voulez-vous continuer?' }
-=link_to "Retour", root_path
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default.post_image
+      .panel-heading
+        =image_tag @post.image.url
+      .panel-body
+        %h2=@post.title
+        %p=@post.description
+      .panel-footer
+        .row
+          .col-md-6
+            %p=@post.user.email
+          .col-md-6
+            .btn-group.pull-right
+              =link_to "Editer", edit_post_path, class: "btn btn-default"
+              =link_to "Supprimer", post_path(@post),
+                            method: :delete,
+                            data: { confirm: 'Cette publication sera supprimée, voulez-vous continuer?' }, class: "btn btn-default"
+              =link_to "Retour", root_path, class: "btn btn-default"

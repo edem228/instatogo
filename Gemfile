@@ -31,6 +31,8 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'devise', '~> 3.5', '>= 3.5.3'
 #paperclip
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
+#masonry
+gem 'masonry-rails', '~> 0.2.4'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
