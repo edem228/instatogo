@@ -33,6 +33,8 @@ gem 'devise', '~> 3.5', '>= 3.5.3'
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
 #masonry
 gem 'masonry-rails', '~> 0.2.4'
+#need to add vote system on posts
+gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
