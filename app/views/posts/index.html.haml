@@ -8,8 +8,8 @@
         %p= post.description
         %p= time_ago_in_words(post.created_at)
         %p
-          Par
-          = post.user.email
+          %span.glyphicon.glyphicon-user
+            = post.user.email
         .btn-group.pull-right
           =link_to post_path(post), class: "btn btn-default" do
             %span.glyphicon.glyphicon-eye-open
