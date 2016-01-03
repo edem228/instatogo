@@ -12,7 +12,7 @@
         - if user_signed_in?
           %ul.nav.navbar-nav.navbar-right
             %li= link_to "Nouveau post", new_post_path
-            %li= link_to "Mon compte", edit_user_registration_path
+            %li= link_to "Mon compte", user_path(current_user)
             %li= link_to "Déconnexion", destroy_user_session_path, method: :delete
         - else
           %ul.nav.navbar-nav.navbar-right

@@ -1,0 +1,36 @@
+- if current_user == @user
+  .row
+    .col-md-6
+      %p 
+        Bienvenue
+        = @user.email
+    .col-md-6
+      .btn-group.pull-right
+        =link_to "Editer le profil", edit_user_registration_path, class: "btn btn-default"
+.row
+.row
+  - if current_user == @user
+    %h3 Vos publications
+  - else
+    %h3 
+      Les publications de 
+      =@user.email
+  %hr
+  #posts.transitions-enabled
+    - @user.posts.each do |post|
+      .box.panel.panel-default
+        =link_to image_tag(post.image.url), post
+        .panel-body
+          %h2
+            =link_to post.title, post
+          %p= post.description
+          %p= time_ago_in_words(post.created_at)
+          %p
+            Par
+            = post.user.email
+          .btn-group.pull-right
+            =link_to post_path(post), class: "btn btn-default" do
+              %span.glyphicon.glyphicon-eye-open
+            =link_to like_post_path(post), method: :put, class: "btn btn-default" do
+              %span.glyphicon.glyphicon-heart
+                =post.get_upvotes.size

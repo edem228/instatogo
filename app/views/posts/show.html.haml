@@ -9,7 +9,7 @@
       .panel-footer
         .row
           .col-md-6
-            %p=@post.user.email
+            =link_to @post.user.email, user_path(@post.user)
           .col-md-6
             .btn-group.pull-right
               =link_to like_post_path(@post), method: :put, class: "btn btn-default" do
