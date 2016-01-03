@@ -1,0 +1,11 @@
+- @post.comments.each do |comment|
+  .col-md-12
+    = comment.body
+    %span.user
+      = comment.user.email
+  .col-md-12
+    .btn-group.pull-right
+      = link_to "Edit", edit_post_comment_path(comment.post, comment)
+      = link_to "Supprimer", [comment.post, comment], method: :delete, data: {confirm: "Le commentaire sera définitivement Supprimer"}
+  %br
+  %hr

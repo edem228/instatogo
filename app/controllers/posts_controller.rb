@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy, :upvote ]
+  before_action :post_owner?, only: [:edit, :update]
   before_action :authenticate_user!, :except => [:index]
 
   def index
@@ -44,6 +45,12 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def post_owner?
+    if current_user.id != @post.user_id
+      redirect_to :post, notice: "Action interdite! Vous n'êtes pas l'auteur de ce contenu"
+    end
+  end
 
   def find_post
     @post = Post.find(params[:id])  

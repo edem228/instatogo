@@ -6,4 +6,10 @@
         %h2
           =link_to post.title, post
         %p= post.description
-        =link_to "Editer", edit_post_path(post.id)
+        %p= time_ago_in_words(post.created_at)
+        .btn-group.pull-right
+          =link_to post_path(post), class: "btn btn-default" do
+            %span.glyphicon.glyphicon-eye-open
+          =link_to like_post_path(post), method: :put, class: "btn btn-default" do
+            %span.glyphicon.glyphicon-heart
+              =post.get_upvotes.size

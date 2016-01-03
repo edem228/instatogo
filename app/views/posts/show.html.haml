@@ -15,8 +15,13 @@
               =link_to like_post_path(@post), method: :put, class: "btn btn-default" do
                 %span.glyphicon.glyphicon-heart
                   =@post.get_upvotes.size
-              =link_to "Editer", edit_post_path, class: "btn btn-default"
-              =link_to "Supprimer", post_path(@post),
-                            method: :delete,
-                            data: { confirm: 'Cette publication sera supprimée, voulez-vous continuer?' }, class: "btn btn-default"
+              - if post_owner?
+                =link_to "Editer", edit_post_path, class: "btn btn-default"
+                =link_to "Supprimer", post_path(@post),
+                              method: :delete,
+                              data: { confirm: 'Cette publication sera supprimée, voulez-vous continuer?' }, class: "btn btn-default"
               =link_to "Retour", root_path, class: "btn btn-default"
+        .row
+          #comment
+            = render "comments/comments"
+            = render "comments/form"
