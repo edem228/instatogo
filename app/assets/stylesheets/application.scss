@@ -17,10 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 .box{
-  width: 250px;
+  width: 265px;
   margin: 10px;
   box-shadow: 0 1px 2px;
-  border-radius: 7px;
+  border-radius: 0 0 7px 7px;
   img{
     max-width: 100%;
     height: auto;

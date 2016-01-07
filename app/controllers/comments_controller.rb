@@ -14,15 +14,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.find_by(params[:id])
   end
 
   def update
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), notice: "Votre commentaire a été bien mis à jour"
     else
       render "edit"
     end
@@ -38,8 +38,8 @@ class CommentsController < ApplicationController
   private
 
   def comment_owner
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.find_by(params[:id])
     if current_user.id != @comment.user_id
       redirect_to post_path(@post), notice: "Action interdite! Vous n'êtes pas l'auteur de ce contenu"
     end
