@@ -7,6 +7,13 @@
     .col-md-6
       .btn-group.pull-right
         =link_to "Editer le profil", edit_user_registration_path, class: "btn btn-default"
+        =link_to "followers", followers_user_path(@user), class: "btn btn-default"
+        %p
+          Following:
+          = @user.following.count
+        %p
+          Followers:
+          = @user.followers.count
 .row
 .row
   - if current_user == @user
@@ -29,8 +36,11 @@
             %span.glyphicon.glyphicon-user
             = post.user.email
           .btn-group.pull-right
+            =link_to edit_post_path(post), class: "btn btn-default" do
+              %span.glyphicon.glyphicon.glyphicon-edit
             =link_to post_path(post), class: "btn btn-default" do
-              %span.glyphicon.glyphicon-eye-open
+              %span.glyphicon.glyphicon-comment
+                =post.comments.size
             =link_to like_post_path(post), method: :put, class: "btn btn-default" do
               %span.glyphicon.glyphicon-heart
                 =post.get_upvotes.size
