@@ -5,6 +5,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(:created_at => "DESC")
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts, status: 200}
+      format.xml { render xml: @posts, status: 200}
+    end
   end
   def new
     @post = current_user.posts.build
