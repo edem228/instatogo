@@ -20,6 +20,7 @@
             %li= link_to "Connexion", new_user_session_path
 
     .container
-      %p.notice= notice
-      %p.alert= alert
+      .col-md-8.col-md-offset-2
+        %p.notice= notice
+        %p.alert= alert
       = yield
